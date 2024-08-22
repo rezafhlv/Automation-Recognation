@@ -83,7 +83,7 @@ def extract_features(audio, sr, n_fft=512):
     feature = np.abs(stft).mean(axis=1)
     return feature
 
-
+# proses komparasi audio
 # Function to predict label from audio file
 def predict(audio_path, model, le):
     audio, sr = load_audio(audio_path)
@@ -93,7 +93,6 @@ def predict(audio_path, model, le):
     predicted_label = le.inverse_transform([np.argmax(prediction)])[0]
     confidence = np.max(prediction)  # Get maximum confidence score
     return predicted_label, confidence
-
 
 model = load_model("best_model.keras")
 le = LabelEncoder()
@@ -107,6 +106,13 @@ le.fit(labels)
 
 ANOMALY_THRESHOLD = 0.5
 
+# untuk ngambil data audio csv tampilin di frontend
+@app.route("/api/data", methods=["GET"])
+def get_audio_data():
+    csv_file_path = "./content/suara.csv"  # Path ke file CSV
+    df = pd.read_csv(csv_file_path)
+    data = df.to_dict(orient="records")
+    return jsonify(data)
 
 # Endpoint to start training process
 @app.route("/train", methods=["GET"])

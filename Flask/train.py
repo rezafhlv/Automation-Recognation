@@ -14,7 +14,6 @@ def load_audio(file_path):
     audio, sr = librosa.load(file_path, sr=None)
     return audio, sr
 
-
 # Fungsi untuk mengekstrak fitur MFCC dan lainnya dari audio
 def extract_features(audio, sr):
     mfccs = librosa.feature.mfcc(y=audio, sr=sr, n_mfcc=13)
@@ -33,15 +32,6 @@ def extract_features(audio, sr):
         ]
     )
     return features
-
-
-import librosa
-import numpy as np
-
-
-def load_audio(file_path):
-    audio, sr = librosa.load(file_path, sr=None)
-    return audio, sr
 
 
 def extract_features(audio, sr, n_fft=512):

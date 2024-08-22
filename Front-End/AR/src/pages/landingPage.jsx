@@ -98,17 +98,16 @@ export default function LandingPage() {
                       Welcome to <span>ARecognation</span>
                     </h1>
                     <p className="text-start">
-                      Discover Acehnese culture and language with our
-                      AR-enhanced learning system. Enjoy interactive lessons,
-                      real-time feedback, and immersive automation recognition
-                      experiences.
+                    Temukan budaya dan bahasa Aceh dengan sistem pembelajaran AR kami.
+                    Nikmati pelajaran interaktif, umpan balik waktu nyata, dan pengalaman
+                    pengenalan otomatisasi yang mendalam.
                     </p>
                     <div className="d-flex align-items-center mb-0">
                       <Link
                         className="btn-get-started scrollto text-decoration-none"
                         to="/login"
                       >
-                        Get Started
+                        Mulai Belajar
                       </Link>
                     </div>
                   </div>
